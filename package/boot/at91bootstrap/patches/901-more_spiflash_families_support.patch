@@ -1,0 +1,63 @@
+Index: at91bootstrap-v3.10.2/driver/spi_flash.c
+===================================================================
+--- at91bootstrap-v3.10.2.orig/driver/spi_flash.c
++++ at91bootstrap-v3.10.2/driver/spi_flash.c
+@@ -56,6 +56,9 @@
+ #define DF_FAMILY_N25Q			0xA0
+ #define DF_FAMILY_M25P			0x20
+ 
++#define DF_FAMILY_W25Q			0x60	/* WINBOND W25Q family addition*/
++#define DF_FAMILY_W25X			0x40	/* WINBOND W25? family addition*/
++
+ /* AT45 Density Code */
+ #define DENSITY_AT45DB011D		0x0C
+ #define DENSITY_AT45DB021D		0x14
+@@ -478,6 +481,24 @@ static int df_n25q_desc_init(struct data
+ 	return 0;
+ }
+ 
++static int df_w25q_desc_init(struct dataflash_descriptor *df_desc)
++{
++	df_desc->pages = 16384; /* 65536 */
++	df_desc->page_size = 256;
++	df_desc->page_offset = 0;
++	df_desc->is_spinor = 1;
++	return 0;
++}
++
++static int df_w25x_desc_init(struct dataflash_descriptor *df_desc)
++{
++	df_desc->pages = 16384; /* 65536 */
++	df_desc->page_size = 256;
++	df_desc->page_offset = 0;
++	df_desc->is_spinor = 1;
++	return 0;
++}
++
+ static int df_at45_desc_init(struct dataflash_descriptor *df_desc)
+ {
+ 	unsigned char status;
+@@ -614,6 +635,23 @@ static int df_desc_init(struct dataflash
+ 				dbg_info("SF: Unsupported SerialFlash family %x\n", family);
+ 				return -1;
+ 			}
++		}
++		break;
++
++		case MANUFACTURER_ID_WINBOND:{	/* WINBOND flash support addition */
++
++			if (df_desc->family == DF_FAMILY_W25Q) {
++				ret = df_w25q_desc_init(df_desc);
++				if (ret)
++					return ret;
++			}else if (df_desc->family == DF_FAMILY_W25X) {
++				ret = df_w25x_desc_init(df_desc);
++				if (ret)
++					return ret;
++			}else {
++				dbg_info("SF: Unsupported SerialFlash family %x\n", family);
++				return -1;
++			}
+ 		}
+ 		break;
+ 
