@@ -160,6 +160,14 @@ menu "Target Images"
 			default 1024 if (SMALL_FLASH && !LOW_MEMORY_FOOTPRINT)
 			default 256
 
+		config TARGET_SQUASHFS_PAD
+			bool "Pad to a 4K boundary"
+			depends on TARGET_ROOTFS_SQUASHFS
+
+		config TARGET_SQUASHFS_NO_OPTIONS
+			bool "No options for comprimation"
+			depends on TARGET_ROOTFS_SQUASHFS
+
 	menuconfig TARGET_ROOTFS_UBIFS
 		bool "ubifs"
 		default y if USES_UBIFS
