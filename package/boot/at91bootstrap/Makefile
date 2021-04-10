@@ -118,7 +118,133 @@ define AT91Bootstrap/sama5d2_ptc_eksd_uboot
   BUILD_DEVICES:=microchip_sama5d2-ptc-ek
 endef
 
+define AT91Bootstrap/at91sam9g15eknf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G15-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g15ek
+endef
+
+define AT91Bootstrap/at91sam9g25eknf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G25-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g25ek
+endef
+
+define AT91Bootstrap/at91sam9g35eknf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G35-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g35ek
+endef
+
+define AT91Bootstrap/at91sam9x25eknf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9x25-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x25ek
+endef
+
+define AT91Bootstrap/at91sam9x35eknf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9x35-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x35ek
+endef
+
+define AT91Bootstrap/at91sam9g15eksd_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G15-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g15ek
+endef
+
+define AT91Bootstrap/at91sam9g25eksd_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G25-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g25ek
+endef
+
+define AT91Bootstrap/at91sam9g35eksd_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G35-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g35ek
+endef
+
+define AT91Bootstrap/at91sam9x25eksd_uboot
+  NAME:=AT91Bootstrap for AT91SAM9x25-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x25ek
+endef
+
+define AT91Bootstrap/at91sam9x35eksd_uboot
+  NAME:=AT91Bootstrap for AT91SAM9x35-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x35ek
+endef
+
+define AT91Bootstrap/at91sam9g15ekdf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G15-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g15ek
+endef
+
+define AT91Bootstrap/at91sam9g25ekdf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G25-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g25ek
+endef
+
+define AT91Bootstrap/at91sam9g35ekdf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9G35-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g35ek
+endef
+
+define AT91Bootstrap/at91sam9x25ekdf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9x25-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x25ek
+endef
+
+define AT91Bootstrap/at91sam9x35ekdf_uboot
+  NAME:=AT91Bootstrap for AT91SAM9x35-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x35ek
+endef
+
+define AT91Bootstrap/at91-ariag25df_uboot
+  NAME:=AT91Bootstrap for Aria G25 (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91-ariag25
+endef
+
+define AT91Bootstrap/at91-ariag25sd_uboot
+  NAME:=AT91Bootstrap for Aria G25 (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91-ariag25
+endef
+
+define AT91Bootstrap/at91-ariag25nf_uboot
+  NAME:=AT91Bootstrap for Aria G25 (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91-ariag25
+endef
+
 AT91BOOTSTRAP_TARGETS := \
+	at91-ariag25nf_uboot \
+	at91-ariag25sd_uboot \
+	at91-ariag25df_uboot \
+	at91sam9g15ekdf_uboot \
+	at91sam9g25ekdf_uboot \
+	at91sam9g35ekdf_uboot \
+	at91sam9x25ekdf_uboot \
+	at91sam9x35ekdf_uboot \
+	at91sam9g15eksd_uboot \
+	at91sam9g25eksd_uboot \
+	at91sam9g35eksd_uboot \
+	at91sam9x25eksd_uboot \
+	at91sam9x35eksd_uboot \
+	at91sam9g15eknf_uboot \
+	at91sam9g25eknf_uboot \
+	at91sam9g35eknf_uboot \
+	at91sam9x25eknf_uboot \
+	at91sam9x35eknf_uboot \
 	at91sam9x5eknf_uboot \
 	at91sam9x5eksd_uboot \
 	sama5d2_xplaineddf_uboot \
