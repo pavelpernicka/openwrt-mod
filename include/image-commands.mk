@@ -72,6 +72,10 @@ define Build/append-rootfs
 	dd if=$(IMAGE_ROOTFS) >> $@
 endef
 
+define Build/append-rootfs-to
+	dd if=$(IMAGE_ROOTFS) of=$@ seek=$(shell printf "%d" $(1)) bs=1
+endef
+
 define Build/append-squashfs-fakeroot-be
 	rm -rf $@.fakefs $@.fakesquashfs
 	mkdir $@.fakefs
