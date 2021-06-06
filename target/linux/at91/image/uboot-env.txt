@@ -1,0 +1,16 @@
+/* Do Not remove First 2 lines, Makefile will modify these lines with proper board names */
+board=atmel_at91sam9x25ek
+board_name=atmel,at91sam9x25ek
+bootargs=console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p2 rw rootwait rootfstype=ext4
+bootargsd2=console=ttyS0,115200 earlyprintk root=/dev/mmcblk1p2 rw rootwait rootfstype=ext4
+bootargsd3=console=ttyS0,115200 root=/dev/mtdblock5
+bootargsxx=console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p2 rw rootwait rootfstype=ext4
+bootcmd=run setbootargs; run fatload_mmc; bootm 0x21000000
+bootdelay=1
+loadaddr=0x21006000
+fatload_mmc=if test ${board_name} = atmel,sama5d2-xplained || test ${board_name} = atmel,sama5d27-som1-ek; then fatload mmc 1:1 0x21000000 ${board}-fit.itb; elif test ${board} = spiflash; then sf probe; sf read $loadaddr 0xb0000 0x280000; bootm $loadaddr; else fatload mmc 0:1 0x21000000 ${board}-fit.itb; fi
+setbootargs=if test ${board_name} = atmel,sama5d2-xplained || test ${board_name} = atmel,sama5d27-som1-ek; then setenv bootargs ${bootargsd2}; elif test ${board} = spiflash; then setenv bootargs ${bootargsd3}; else setenv bootargs ${bootargsxx}; fi
+ethact=gmac0
+stderr=serial
+stdin=serial
+stdout=serial

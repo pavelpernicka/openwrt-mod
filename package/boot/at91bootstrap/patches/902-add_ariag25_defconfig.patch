@@ -1,0 +1,36 @@
+Index: at91bootstrap-v3.10.2/contrib/board/acme/at91sam9x5_aria/at91-ariag25nf_uboot_defconfig
+===================================================================
+--- /dev/null
++++ at91bootstrap-v3.10.2/contrib/board/acme/at91sam9x5_aria/at91-ariag25nf_uboot_defconfig
+@@ -0,0 +1,7 @@
++CONFIG_AT91SAM9X5EK=y
++CONFIG_RAM_128MB=y
++CONFIG_NANDFLASH=y
++# CONFIG_PMECC_AUTO_DETECT is not set
++CONFIG_IMG_SIZE="0x000b0000"
++CONFIG_DEBUG=y
++CONFIG_THUMB=y
+Index: at91bootstrap-v3.10.2/contrib/board/acme/at91sam9x5_aria/at91-ariag25df_uboot_defconfig
+===================================================================
+--- /dev/null
++++ at91bootstrap-v3.10.2/contrib/board/acme/at91sam9x5_aria/at91-ariag25df_uboot_defconfig
+@@ -0,0 +1,7 @@
++CONFIG_AT91SAM9X5EK=y
++CONFIG_RAM_128MB=y
++# CONFIG_DATAFLASH_RECOVERY is not set
++CONFIG_DEBUG=y
++CONFIG_THUMB=y
++CONFIG_SCLK=y
++# CONFIG_LOAD_ONE_WIRE is not set
+Index: at91bootstrap-v3.10.2/contrib/board/acme/at91sam9x5_aria/at91-ariag25sd_uboot_defconfig
+===================================================================
+--- /dev/null
++++ at91bootstrap-v3.10.2/contrib/board/acme/at91sam9x5_aria/at91-ariag25sd_uboot_defconfig
+@@ -0,0 +1,7 @@
++CONFIG_AT91SAM9X5EK=y
++CONFIG_RAM_128MB=y
++CONFIG_SDCARD=y
++CONFIG_DEBUG=y
++CONFIG_THUMB=y
++CONFIG_SCLK=y
++CONFIG_LOAD_ONE_WIRE=y

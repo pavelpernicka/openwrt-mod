@@ -40,6 +40,24 @@ define Device/dtb
   KERNEL := kernel-bin | lzma | uImage lzma
 endef
 
+define Build/at91-spiflash
+  $(CP) uboot-env.txt $@-uboot-env.txt
+  sed -i '2d;3d' $@-uboot-env.txt
+  sed -i '2i board='"spiflash"'' $@-uboot-env.txt
+  sed -i '3i board_name='"$(firstword $(SUPPORTED_DEVICES))"'' $@-uboot-env.txt
+
+  mkenvimage -s 0x3000 -o $@-uboot.env $@-uboot-env.txt
+
+  ./gen_at91_spiflash_img.sh \
+      $@-uboot.env \
+      $(BIN_DIR)/u-boot-$(DEVICE_NAME)_spiflash/u-boot.bin \
+      $(BIN_DIR)/at91bootstrap-$(DEVICE_NAME)df_uboot/at91bootstrap.bin \
+      $(KDIR)/root.squashfs \
+      $(KDIR)/$(DEVICE_NAME)-fit-uImage.itb \
+      $@
+
+endef
+
 define Build/at91-sdcard
   $(if $(findstring ext4,$@), \
   rm -f $@.boot
@@ -74,6 +92,17 @@ endef
 define Device/evaluation-sdimage
   IMAGES += sdcard.img.gz
   IMAGE/sdcard.img.gz := at91-sdcard
+endef
+
+define Device/evaluation-spiflashimage
+  $(Device/evaluation-fit)
+  IMAGES += flash.bin
+  IMAGE/flash.bin := at91-spiflash
+endef
+
+define Device/spiflash-sysupgrade
+  IMAGES += sysupgrade.bin
+  IMAGE/sysupgrade.bin := append-kernel | append-rootfs-to 0x00280000 | append-metadata
 endef
 
 define Device/evaluation

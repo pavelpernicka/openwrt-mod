@@ -35,6 +35,14 @@ define Device/at91sam9g25ek
 endef
 TARGET_DEVICES += at91sam9g25ek
 
+define Device/at91-ariag25
+  $(Device/evaluation-spiflashimage)
+  $(Device/spiflash-sysupgrade)
+  DEVICE_TITLE := Acme Systems Aria G25 (spi flash)
+  SUPPORTED_DEVICES := acme,ariag25
+endef
+TARGET_DEVICES += at91-ariag25
+
 define Device/at91sam9g35ek
   $(Device/evaluation)
   DEVICE_TITLE := Atmel AT91SAM9G35-EK

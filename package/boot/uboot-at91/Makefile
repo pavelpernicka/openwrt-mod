@@ -105,7 +105,148 @@ define U-Boot/sama5d2_ptc_ek_mmc
   BUILD_DEVICES:=at91-sama5d2_ptc_ek
 endef
 
+define U-Boot/at91sam9g15ek_nandflash
+  NAME:=AT91SAM9G15-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g15ek
+endef
+
+define U-Boot/at91sam9g25ek_nandflash
+  NAME:=AT91SAM9G25-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g25ek
+endef
+
+define U-Boot/at91sam9g35ek_nandflash
+  NAME:=AT91SAM9G35-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g35ek
+endef
+
+define U-Boot/at91sam9x25ek_nandflash
+  NAME:=AT91SAM9x25-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x25ek
+endef
+
+define U-Boot/at91sam9x35ek_nandflash
+  NAME:=AT91SAM9x35-EK board (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x35ek
+endef
+
+define U-Boot/at91sam9g15ek_mmc
+  NAME:=AT91SAM9G15-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g15ek
+endef
+
+define U-Boot/at91sam9g25ek_mmc
+  NAME:=AT91SAM9G25-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g25ek
+endef
+
+define U-Boot/at91sam9g35ek_mmc
+  NAME:=AT91SAM9G35-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g35ek
+endef
+
+define U-Boot/at91sam9x25ek_mmc
+  NAME:=AT91SAM9x25-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x25ek
+endef
+
+define U-Boot/at91sam9x35ek_mmc
+  NAME:=AT91SAM9x35-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x35ek
+endef
+
+define U-Boot/at91sam9g15ek_spiflash
+  NAME:=AT91SAM9G15-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g15ek
+endef
+
+define U-Boot/at91sam9g25ek_spiflash
+  NAME:=AT91SAM9G25-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g25ek
+endef
+
+define U-Boot/at91sam9g35ek_spiflash
+  NAME:=AT91SAM9G35-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9g35ek
+endef
+
+define U-Boot/at91sam9x25ek_spiflash
+  NAME:=AT91SAM9x25-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x25ek
+endef
+
+define U-Boot/at91sam9x35ek_spiflash
+  NAME:=AT91SAM9x35-EK board (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91sam9x35ek
+endef
+
+define U-Boot/at91-ariag25_spiflash
+  NAME:=Aria G25 (SPI Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91-ariag25
+endef
+
+define U-Boot/at91-ariag25_mmc
+  NAME:=Aria G25 (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91-ariag25
+endef
+
+define U-Boot/at91-ariag25_nandflash
+  NAME:=Aria G25 (NandFlash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91-ariag25
+endef
+
+define U-Boot/sam9x60ek_mmc
+  NAME:=SAM9X60-EK board (SDcard)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91-sam9x60ek
+endef
+
+define U-Boot/sam9x60ek_nandflash
+  NAME:=SAM9X60-EK board (Nand Flash)
+  BUILD_SUBTARGET:=sam9x
+  BUILD_DEVICES:=at91-sam9x60ek
+endef
+
 UBOOT_TARGETS := \
+	at91-ariag25_nandflash \
+	at91-ariag25_mmc \
+	at91-ariag25_spiflash \
+	at91sam9g15ek_spiflash \
+	at91sam9g25ek_spiflash \
+	at91sam9g35ek_spiflash \
+	at91sam9x25ek_spiflash \
+	at91sam9x35ek_spiflash \
+	at91sam9g15ek_mmc \
+	at91sam9g25ek_mmc \
+	at91sam9g35ek_mmc \
+	at91sam9x25ek_mmc \
+	at91sam9x35ek_mmc \
+	at91sam9g15ek_nandflash \
+	at91sam9g25ek_nandflash \
+	at91sam9g35ek_nandflasht \
+	at91sam9x25ek_nandflash \
+	at91sam9x35ek_nandflash \
+	at91sam9m10g45ek_nandflash \
+	sam9x60ek_mmc \
+	sam9x60ek_nandflash \
 	at91sam9m10g45ek_nandflash \
 	at91sam9x5ek_nandflash \
 	sama5d3_xplained_nandflash \
