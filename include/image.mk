@@ -81,7 +81,14 @@ ifeq ($(CONFIG_SQUASHFS_XZ),y)
   ifneq ($(filter arm x86 powerpc sparc,$(LINUX_KARCH)),)
     BCJ_FILTER:=-Xbcj $(LINUX_KARCH)
   endif
-  SQUASHFSCOMP := xz $(LZMA_XZ_OPTIONS) $(BCJ_FILTER)
+  SQUASHFSCOMP := xz
+  ifneq ($(CONFIG_TARGET_SQUASHFS_NO_OPTIONS),y)
+    SQUASHFSCOMP := xz $(LZMA_XZ_OPTIONS) $(BCJ_FILTER)
+  endif
+endif
+
+ifneq ($(CONFIG_TARGET_SQUASHFS_PAD),y)
+  SQUASHFSOPT += -nopad
 endif
 
 JFFS2_BLOCKSIZE ?= 64k 128k
