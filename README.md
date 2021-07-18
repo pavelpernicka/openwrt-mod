@@ -1,5 +1,5 @@
 ## Information about this fork
-This fork mainly contains changes that make possible to use normal (non QSPI) SPI flashes on Acmesystems Aria-G25 system on module (SoM). At the momment the only flash supported is W25Q128 (16M), but more can be add quite easily (just do the same things as in package/boot/at91bootstrap/patches/901-more_spiflash_families_support.patch). However, the way how the support for flashes is implemented isn't the best, it would be better to edit spi-flash subsystem and add there some support for non-QSPI flashes (I haven't done it because I somehow wasn't even able to make this subsystem work on Aria). It's also a litle bit easier to prepare OpenWrt itself, instand of many configurations of generic at91sam9g25-ek board you can just choose "Aria G25 (spi flash)" and buildsystem makes everything, including final flash image and sysupgrade image. There is also included patch that forces kernel to make gpio accessible through sysfs by normal names in format gpioXX, so there would not be problems for example with Openocd which can't handle other gpio names format.
+This fork mainly contains changes that make possible to use normal (non QSPI) SPI flashes on Acmesystems Aria-G25 system on module (SoM). At the momment the only flash supported is W25Q128 (16M), but more can be add quite easily (just do the same things as in package/boot/at91bootstrap/patches/901-more_spiflash_families_support.patch). However, the way how the support for flashes is implemented isn't the best, it would be better to edit spi-flash subsystem and add there some support for non-QSPI flashes (I haven't done it because I somehow wasn't even able to make this subsystem work on Aria). It's also a litle bit easier to prepare OpenWrt itself, instand of many configurations of generic at91sam9g25-ek board you can just choose "Aria G25 (spi flash)" and buildsystem makes everything, including final flash image and sysupgrade image. There is also included patch that forces kernel to make gpio accessible through sysfs by normal names in format gpioXX, so there would not be problems for example with Openocd which can't handle other gpio names format.  
 Note: this fork contains newer uboot-at91 version than original openwrt 19.07
 
 ## Installation steps
@@ -14,9 +14,10 @@ Note: this fork contains newer uboot-at91 version than original openwrt 19.07
     * Target Images -> squashfs (check) -> No options for comprimation (when there are options kernel can't detect filesystem)
     * Target Images -> squashfs (check) -> Block size (in KiB) = value which works with your flash (for W25Q128 it is 128 KiB)
 4) Easier way is to use config file configs/ariag25
-5) Compile
-6) When the compilation is done, it's good to check if the image size has not exceeded flash size
-7) Flash it and test it
+5) If you want you can change devicetree (dts) located in: target/linux/at91/files/arch/arm/boot/dts/at91-ariag25.dts
+6) Compile
+7) When the compilation is done, it's good to check if the image size has not exceeded flash size
+8) Flash it and test it
 
 ## Original content of readme:
   _______                     ________        __
