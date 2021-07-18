@@ -1,5 +1,6 @@
 ## Information about this fork
 This fork mainly contains changes that make possible to use normal (non QSPI) SPI flashes on Acmesystems Aria-G25 system on module (SoM). At the momment the only flash supported is W25Q128 (16M), but more can be add quite easily (just do the same things as in package/boot/at91bootstrap/patches/901-more_spiflash_families_support.patch). However, the way how the support for flashes is implemented isn't the best, it would be better to edit spi-flash subsystem and add there some support for non-QSPI flashes (I haven't done it because I somehow wasn't even able to make this subsystem work on Aria). It's also a litle bit easier to prepare OpenWrt itself, instand of many configurations of generic at91sam9g25-ek board you can just choose "Aria G25 (spi flash)" and buildsystem makes everything, including final flash image and sysupgrade image. There is also included patch that forces kernel to make gpio accessible through sysfs by normal names in format gpioXX, so there would not be problems for example with Openocd which can't handle other gpio names format.
+Note: this fork contains newer uboot-at91 version than original openwrt 19.07
 
 ## Installation steps
 1) Clone this repository
