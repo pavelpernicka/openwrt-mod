@@ -40,6 +40,9 @@ at91_board_detect() {
 	*"Atmel AT91SAM9X35-EK")
 		name="at91sam9x35ek"
 		;;
+	*"Acme Systems Aria G25")
+		name="acme,ariag25"
+		;;
 	*"SAMA5D3 Xplained")
 		name="sama5d3_xplained"
 		;;
