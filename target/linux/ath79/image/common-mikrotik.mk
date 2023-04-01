@@ -21,5 +21,4 @@ define Device/mikrotik_nand
   DEVICE_COMPAT_MESSAGE := \
        NAND images switched to yafut. If running older image, reinstall from initramfs.
   DEVICE_COMPAT_VERSION := 1.1
-
 endef
